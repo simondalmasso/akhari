@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "akhari-e394b"
+  },
+  "targets": {
+    "akhari-e394b": {
+      "hosting": {
+        "tienda": [
+          "akhari"
+        ]
+      }
+    }
+  }
+}
