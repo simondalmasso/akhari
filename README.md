@@ -29,7 +29,7 @@ En el panel, **Sincronizar precios base** actualiza costo y precio de esos cuatr
 
 La portada pública usa una dirección editorial inspirada en estudios de cerámica y tiendas artesanales: paleta de arcilla, lino y tierra; tipografía serif para titulares; fotografía/arte enmarcado; tarjetas de producto más limpias; botones discretos y jerarquía adaptable a móvil. La implementación está en `public/index.html`, sin framework ni dependencias nuevas. Se conservan el catálogo Firestore, el carrito local y el flujo de consulta por WhatsApp.
 
-Las imágenes reales de los cuatro productos no estaban incluidas en la tabla de precios ni se sustituyeron por fotos inventadas. Mientras no se carguen imágenes propias, el sitio utiliza una ilustración de respaldo.
+Las imágenes reales de los cuatro productos no estaban incluidas en la tabla de precios ni se sustituyeron por fotos inventadas. Mientras no se carguen imágenes propias, el sitio utiliza ilustraciones vectoriales de respaldo diferenciadas por tipo de producto; no se presentan como fotografías reales.
 
 ## Funcionalidad
 
