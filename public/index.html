@@ -1,89 +1,156 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f0e7"><meta name="description" content="Akhari Cerámica: piezas hechas a mano."><title>Akhari Cerámica — piezas hechas a mano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f5f0e7;--paper-deep:#e8dfd1;--ink:#28251f;--muted:#777166;--clay:#a6533b;--clay-dark:#7d3b2b;--line:#d9cfc0;--white:#fffdf8;--sage:#78816b;--serif:Georgia,"Times New Roman",serif;--sans:Arial,Helvetica,sans-serif}
+
+:root{
+  color-scheme:light;
+  --paper:#f7f3ec;
+  --paper-deep:#eee5d9;
+  --white:#fffdf9;
+  --ink:#2d2924;
+  --muted:#797166;
+  --clay:#a95e43;
+  --clay-dark:#7d4030;
+  --line:#ded4c7;
+  --sage:#78816c;
+  --sage-soft:#e2e6da;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans","Avenir Next",Arial,sans-serif;
+  --shadow:0 18px 42px rgba(54,42,30,.075);
+  --radius:16px;
+}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:25px}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
-button,input,textarea{font:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit}
 button,a{-webkit-tap-highlight-color:transparent}
 a{color:inherit}
-.topline{background:var(--ink);color:#f8f1e7;text-align:center;padding:10px 14px;font-size:9px;letter-spacing:.19em;text-transform:uppercase}
-.nav{min-height:82px;padding:0 clamp(18px,6vw,88px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:18px}
-.brand{font:27px var(--serif);letter-spacing:.14em;text-decoration:none;line-height:1}
-.brand small{display:block;font:9px var(--sans);letter-spacing:.32em;margin-top:8px;color:var(--muted)}
-.navlinks{display:flex;gap:clamp(14px,2.7vw,34px);align-items:center;font-size:12px}.social-link{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid var(--line);color:var(--ink);text-decoration:none;transition:background .2s,color .2s,border-color .2s}.social-link:hover{background:var(--ink);border-color:var(--ink);color:var(--white)}.social-link svg{width:15px;height:15px;display:block}.social-link:focus-visible{outline:2px solid var(--clay);outline-offset:3px}
-.navlinks a{text-decoration:none;position:relative}
-.navlinks a:after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1px;background:var(--clay);transition:right .2s}
-.navlinks a:hover:after{right:0}
-.cartbtn{border:1px solid var(--ink);background:transparent;padding:12px 17px;cursor:pointer;font-size:11px;transition:background .2s,color .2s}
-.cartbtn:hover{background:var(--ink);color:var(--white)}
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);min-height:540px;padding:clamp(42px,7vw,100px) clamp(20px,8vw,120px);gap:clamp(28px,6vw,84px);align-items:center;max-width:1600px;margin:auto}
-.eyebrow{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--clay);font-weight:bold}
-.hero h1{font:400 clamp(48px,6.6vw,88px)/.98 var(--serif);letter-spacing:-.055em;margin:20px 0 22px;max-width:580px}
-.hero h1 em{font-weight:400;color:var(--clay);display:inline-block}
-.hero p{max-width:400px;color:var(--muted);font-size:14px;line-height:1.9;margin:0}
-.primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--clay);color:white;border:1px solid var(--clay);text-decoration:none;padding:15px 21px;margin-top:25px;cursor:pointer;font-size:10px;letter-spacing:.11em;text-transform:uppercase;transition:background .2s,border-color .2s,transform .2s}
-.primary:hover{background:var(--clay-dark);border-color:var(--clay-dark);transform:translateY(-1px)}
-.heroart{min-height:390px;display:flex;align-items:center;justify-content:center;background:#e6d9c8;position:relative;overflow:hidden;isolation:isolate}
-.heroart:before{content:"";position:absolute;width:75%;aspect-ratio:1;border:1px solid #c8b59f;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);z-index:-1}
-.heroart:after{content:"OBJETOS CON ALMA";position:absolute;right:17px;bottom:17px;font-size:8px;letter-spacing:.2em;color:#7e6a55}
-.heroart svg{position:relative;width:min(76%,360px);filter:drop-shadow(0 24px 18px #76604a35);transition:transform .5s}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--clay);outline-offset:4px}
+.topline{background:var(--ink);color:#f8f1e8;text-align:center;padding:10px 14px;font-size:9px;letter-spacing:.17em;text-transform:uppercase}
+.nav{position:sticky;top:0;z-index:25;min-height:78px;padding:0 clamp(18px,5.5vw,82px);display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid rgba(222,212,199,.82);background:rgba(247,243,236,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.brand{flex-shrink:0;font:600 27px/1 var(--serif);letter-spacing:.15em;text-decoration:none}
+.brand small{display:block;font:600 8px var(--sans);letter-spacing:.36em;margin-top:8px;color:var(--muted)}
+.navlinks{display:flex;gap:clamp(12px,2.3vw,30px);align-items:center}
+.navlinks>a:not(.social-link){font-size:11px;color:#544d44;text-decoration:none;position:relative;padding:10px 0}
+.navlinks>a:not(.social-link):after{content:"";position:absolute;left:0;right:100%;bottom:3px;height:1px;background:var(--clay);transition:right .22s}
+.navlinks>a:not(.social-link):hover:after{right:0}
+.social-link{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;color:var(--ink);text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.social-link:hover{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.social-link svg{width:15px;height:15px;display:block}
+.cartbtn{display:inline-flex;align-items:center;justify-content:center;gap:7px;white-space:nowrap;border:1px solid var(--ink);border-radius:999px;background:var(--ink);color:var(--white);padding:12px 17px;cursor:pointer;font-size:10px;letter-spacing:.045em;transition:background .2s,color .2s,transform .2s}
+.cartbtn:hover{background:var(--clay-dark);border-color:var(--clay-dark);transform:translateY(-1px)}
+.hero{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);min-height:570px;padding:clamp(58px,7.5vw,108px) clamp(20px,7vw,102px) 76px;gap:clamp(28px,5.6vw,84px);align-items:center;max-width:1540px;margin:auto}
+.hero-copy{max-width:570px}
+.eyebrow{display:flex;align-items:center;gap:9px;font-size:9px;letter-spacing:.19em;text-transform:uppercase;color:var(--clay);font-weight:700}
+.eyebrow:before{content:"";width:22px;height:1px;background:currentColor}
+.hero h1{font:500 clamp(56px,7.1vw,92px)/.88 var(--serif);letter-spacing:-.048em;margin:23px 0 23px;max-width:620px}
+.hero h1 em{font-weight:500;color:var(--clay);display:inline-block}
+.hero p{max-width:410px;color:var(--muted);font-size:13px;line-height:1.95;margin:0}
+.primary{display:inline-flex;align-items:center;justify-content:center;gap:15px;background:var(--clay);color:#fffdf8;border:1px solid var(--clay);border-radius:999px;text-decoration:none;padding:15px 22px;margin-top:27px;cursor:pointer;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:background .22s,border-color .22s,transform .22s,box-shadow .22s}
+.primary:hover{background:var(--clay-dark);border-color:var(--clay-dark);transform:translateY(-2px);box-shadow:0 10px 22px rgba(125,64,48,.16)}
+.heroart{min-height:455px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 48% 30%,#f5e9d9 0%,#e8d8c4 57%,#dfcbb4 100%);position:relative;overflow:hidden;isolation:isolate;border-radius:42% 42% 14px 14px / 30% 30% 14px 14px}
+.heroart:before{content:"";position:absolute;width:76%;aspect-ratio:1;border:1px solid rgba(164,129,96,.44);border-radius:50%;left:50%;top:48%;transform:translate(-50%,-50%);z-index:-1;box-shadow:0 0 0 26px rgba(255,253,249,.14),0 0 0 74px rgba(255,253,249,.1)}
+.heroart:after{content:"OBJETOS CON ALMA  ·  AKHARI";position:absolute;right:19px;bottom:17px;font-size:8px;font-weight:600;letter-spacing:.17em;color:#7e6a55}
+.heroart svg{position:relative;width:min(74%,360px);max-height:370px;filter:drop-shadow(0 25px 22px rgba(72,48,31,.18));transition:transform .5s ease}
 .heroart:hover svg{transform:translateY(-5px) rotate(-1deg)}
-.section{padding:clamp(54px,7vw,92px) clamp(20px,7vw,100px);max-width:1600px;margin:auto}
-.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:34px}
-.section h2{font:400 clamp(32px,4.2vw,52px)/1.08 var(--serif);letter-spacing:-.035em;margin:10px 0 0}
-.sectionhead p{font-size:12px;color:var(--muted);max-width:300px;line-height:1.8;margin:0}
-.notice{padding:14px 17px;background:#ece3d6;border-left:2px solid var(--clay);font-size:11px;color:#62594d;margin-bottom:25px;line-height:1.7}
-.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,26px)}
-.product{min-width:0;position:relative}
-.photo{aspect-ratio:4/4.7;background:#e8e0d5;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.product:nth-child(4n+2) .photo{background:#e5ddd0}
-.product:nth-child(4n+3) .photo{background:#e9e2d8}
-.product:nth-child(4n+4) .photo{background:#e3d8ca}
-.photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.value-strip{max-width:1230px;margin:0 auto 14px;padding:22px 28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;background:#eee5d9;border:1px solid rgba(222,212,199,.9);border-radius:var(--radius)}
+.value-item{display:flex;align-items:flex-start;gap:14px;min-width:0}
+.value-index{display:inline-flex;align-items:center;justify-content:center;flex:0 0 30px;width:30px;height:30px;border:1px solid #cbbb a4;border:1px solid #cbbb a4;border-radius:50%;color:var(--clay);font:500 13px var(--serif)}
+.value-item strong{display:block;font-size:11px;font-weight:700;margin:2px 0 5px}
+.value-item p{font-size:10px;color:var(--muted);line-height:1.65;margin:0}
+.section{padding:clamp(62px,7.2vw,100px) clamp(20px,6.5vw,94px);max-width:1540px;margin:auto}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:26px;margin-bottom:30px}
+.section h2{font:500 clamp(37px,4.3vw,58px)/.98 var(--serif);letter-spacing:-.035em;margin:11px 0 0}
+.sectionhead p{font-size:11px;color:var(--muted);max-width:285px;line-height:1.8;margin:0}
+.notice{padding:12px 16px;background:rgba(238,229,217,.72);border:1px solid var(--line);border-radius:10px;font-size:10px;color:#62594d;margin-bottom:20px;line-height:1.7}
+.catalog-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 25px}
+.searchbox{display:flex;align-items:center;gap:10px;flex:1 1 220px;max-width:440px;min-width:180px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:0 15px;min-height:44px;color:var(--muted)}
+.searchbox svg{width:16px;height:16px;flex:0 0 16px}
+.searchbox input{width:100%;min-width:0;border:0;outline:0!important;box-shadow:none!important;background:transparent;color:var(--ink);font-size:11px;padding:12px 0}
+.searchbox input::placeholder{color:#91877a}
+.sort-box{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:10px;white-space:nowrap}
+.sort-box select{appearance:none;max-width:100%;border:1px solid var(--line);border-radius:999px;background:var(--white);color:var(--ink);padding:12px 30px 12px 14px;font-size:10px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#786c60 50%),linear-gradient(135deg,#786c60 50%,transparent 50%);background-position:calc(100% - 14px) 17px,calc(100% - 10px) 17px;background-size:4px 4px,4px 4px;background-repeat:no-repeat}
+.product-count{margin:0 0 0 auto;font-size:10px;letter-spacing:.04em;color:var(--muted)}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(13px,2vw,25px)}
+.product{min-width:0;position:relative;background:var(--white);border:1px solid rgba(222,212,199,.82);border-radius:15px;overflow:hidden;transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease}
+.product:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d0bca7}
+.photo{aspect-ratio:4/4.55;background:#e8e0d5;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.product:nth-child(4n+2) .photo{background:#e7dfd2}
+.product:nth-child(4n+3) .photo{background:#ece5db}
+.product:nth-child(4n+4) .photo{background:#e5d8c9}
+.photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .product:hover .photo img{transform:scale(1.035)}
-.placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#eee6db,#d7c5b1)}
-.product:nth-child(4n+2) .placeholder{background:linear-gradient(145deg,#e9e1d4,#d1c3b0)}
-.product:nth-child(4n+3) .placeholder{background:linear-gradient(145deg,#eae4da,#d9cabc)}
-.product:nth-child(4n+4) .placeholder{background:linear-gradient(145deg,#e8ded1,#cfb9a5)}
-.placeholder svg{width:65%;max-height:80%;opacity:.86;filter:drop-shadow(0 8px 8px #69533d20)}
-.productinfo{padding:16px 2px 4px}
-.producttitle{font:400 clamp(19px,2vw,24px)/1.2 var(--serif);margin:0 0 10px;text-transform:capitalize}
+.placeholder-wrap{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 34%,rgba(255,253,249,.42),transparent 62%)}
+.placeholder-wrap:before{content:"";position:absolute;width:70%;aspect-ratio:1;border:1px solid rgba(137,109,81,.19);border-radius:50%}
+.placeholder{position:relative;z-index:1;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.placeholder svg{width:65%;max-height:75%;opacity:.86;filter:drop-shadow(0 10px 10px rgba(65,49,33,.1))}
+.placeholder-label{position:absolute;bottom:10px;left:10px;max-width:calc(100% - 20px);padding:6px 9px;border:1px solid rgba(222,212,199,.7);border-radius:999px;background:rgba(255,253,249,.78);backdrop-filter:blur(5px);font-size:7px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#75685a}
+.productinfo{padding:16px 16px 17px}
+.producttitle{font:500 clamp(20px,2vw,27px)/1.05 var(--serif);margin:0 0 12px;text-transform:capitalize;letter-spacing:-.01em}
 .productmeta{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.price{font-size:12px;font-weight:bold;letter-spacing:.01em}
-.stock{font-size:9px;color:var(--muted);text-align:right}
-.add{width:100%;margin-top:16px;border:1px solid #bfb3a3;background:transparent;padding:13px 8px;cursor:pointer;font-size:9px;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,border-color .2s,color .2s}
+.price{font-size:12px;font-weight:700;letter-spacing:.01em;color:var(--ink)}
+.stock{display:inline-block;font-size:8px;color:#59624e;text-align:right;background:var(--sage-soft);border-radius:999px;padding:5px 8px}
+.add{width:100%;margin-top:15px;border:1px solid #c9bcad;background:transparent;color:var(--ink);border-radius:999px;padding:12px 8px;cursor:pointer;font-size:9px;font-weight:600;letter-spacing:.065em;text-transform:uppercase;transition:background .2s,border-color .2s,color .2s}
 .add:hover{background:var(--ink);border-color:var(--ink);color:white}
 .add:disabled{opacity:.4;cursor:not-allowed}
-.about{background:var(--paper-deep);display:grid;grid-template-columns:1fr 1fr;gap:clamp(25px,7vw,100px);align-items:center;padding:clamp(50px,7vw,88px) clamp(20px,9vw,130px);max-width:none}
-.about h2{font:400 clamp(34px,4.5vw,56px)/1.08 var(--serif);letter-spacing:-.04em;margin:12px 0}
-.about p{font-size:13px;color:#625d54;line-height:2;max-width:520px;margin:0}
-.footer{padding:26px clamp(20px,7vw,100px);display:flex;justify-content:space-between;gap:15px;font-size:10px;letter-spacing:.03em;color:var(--muted);border-top:1px solid var(--line)}
-.footer a{text-decoration:none}
-.empty{padding:30px;border:1px dashed #cfc3b3;color:var(--muted);font-size:12px;grid-column:1/-1;line-height:1.7}
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:white;padding:13px 18px;font-size:12px;z-index:30;display:none;max-width:90vw;box-shadow:0 8px 30px #0002}
-.cartpanel{position:fixed;right:0;top:0;height:100dvh;width:min(440px,100%);background:var(--white);z-index:40;box-shadow:-10px 0 35px #0002;padding:clamp(18px,4vw,30px);overflow:auto;transform:translateX(110%);transition:transform .25s}
+.about{background:var(--paper-deep);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,7vw,100px);align-items:center;padding:clamp(58px,7.3vw,98px) clamp(20px,9vw,130px);max-width:none;position:relative;overflow:hidden}
+.about:after{content:"";position:absolute;right:-90px;top:-145px;width:340px;height:340px;border:1px solid rgba(169,94,67,.17);border-radius:50%;box-shadow:0 0 0 26px rgba(169,94,67,.035),0 0 0 70px rgba(169,94,67,.025);pointer-events:none}
+.about h2{font:500 clamp(42px,4.8vw,64px)/.96 var(--serif);letter-spacing:-.04em;margin:14px 0;position:relative;z-index:1}
+.about p{font-size:12px;color:#625d54;line-height:2;max-width:520px;margin:0;position:relative;z-index:1}
+.footer{padding:25px clamp(20px,6.5vw,94px);display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:9px;letter-spacing:.035em;color:var(--muted);border-top:1px solid var(--line)}
+.footer a{text-decoration:none;transition:color .2s}
+.footer a:hover{color:var(--clay)}
+.empty{padding:32px 24px;border:1px dashed #cfc3b3;border-radius:12px;background:rgba(255,253,249,.55);color:var(--muted);font-size:11px;grid-column:1/-1;line-height:1.8}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:white;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:13px 19px;font-size:11px;z-index:50;display:none;max-width:calc(100vw - 32px);box-shadow:0 8px 30px rgba(0,0,0,.16)}
+.cartpanel{position:fixed;right:0;top:0;height:100dvh;width:min(460px,100%);background:var(--white);z-index:40;box-shadow:-18px 0 55px rgba(38,31,24,.16);padding:clamp(20px,4vw,32px);overflow:auto;transform:translateX(110%);transition:transform .28s ease}
 .cartpanel.open{transform:translateX(0)}
-.carttop{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:17px}
-.carttop h2{font:30px var(--serif);margin:0}
-.close{background:none;border:0;font-size:27px;cursor:pointer;line-height:1}
-.cartline{display:flex;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-size:12px}
+.carttop{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:17px;margin-bottom:8px}
+.carttop h2{font:500 36px/.95 var(--serif);margin:0}
+.close{background:var(--paper);border:1px solid var(--line);border-radius:50%;width:38px;height:38px;font-size:24px;cursor:pointer;line-height:1;color:var(--ink)}
+.cartline{display:flex;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-size:11px}
 .qty{display:flex;gap:8px;align-items:center}
-.qty button{border:1px solid var(--line);background:none;width:29px;height:29px;cursor:pointer}
-.field{display:block;width:100%;border:1px solid var(--line);background:white;padding:13px;margin:8px 0 15px;border-radius:0}
+.qty button{border:1px solid var(--line);border-radius:50%;background:none;width:29px;height:29px;cursor:pointer}
+.field{display:block;width:100%;border:1px solid var(--line);background:#fffefa;padding:13px 14px;margin:8px 0 16px;border-radius:10px;font-size:12px}
 .field:focus{outline:1px solid var(--clay);border-color:var(--clay)}
-.total{display:flex;justify-content:space-between;font-weight:bold;font-size:13px;margin-top:23px}
-.checkout{width:100%;margin-top:16px}
-.small{font-size:10px;color:var(--muted);line-height:1.7}
-@media(min-width:1200px){.heroart{min-height:450px}.hero{min-height:620px}}
-@media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:48px;padding-bottom:48px;gap:30px}.heroart{min-height:300px}.hero h1{font-size:clamp(48px,10vw,74px)}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 15px}.navlinks{gap:12px}.navlinks a{display:none}.about{grid-template-columns:1fr;gap:12px}.sectionhead{align-items:start;flex-direction:column}.footer{flex-direction:column;gap:9px}}
-@media(max-width:420px){.nav{min-height:72px;padding:0 16px}.brand{font-size:24px}.cartbtn{padding:10px 12px}.heroart{min-height:260px}.section{padding-left:16px;padding-right:16px}.producttitle{font-size:19px}.productmeta{align-items:flex-start;flex-direction:column;gap:5px}.stock{text-align:left}.add{font-size:8px;letter-spacing:.07em}.about{padding-left:20px;padding-right:20px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+.total{display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-top:24px;padding-top:17px;border-top:1px solid var(--line)}
+.checkout{width:100%;margin-top:15px}
+.small{font-size:10px;color:var(--muted);line-height:1.8}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(min-width:1200px){.heroart{min-height:490px}.hero{min-height:610px}}
+@media(max-width:1100px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{padding-left:clamp(24px,5vw,64px);padding-right:clamp(24px,5vw,64px)}.value-strip{margin-left:24px;margin-right:24px}}
+@media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:54px;padding-bottom:53px;gap:32px}.hero-copy{max-width:700px}.heroart{min-height:350px;border-radius:40% 40% 13px 13px / 26% 26% 13px 13px}.hero h1{font-size:clamp(58px,10vw,80px)}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.navlinks{gap:12px}.navlinks>a[href="#nosotras"],.navlinks .social-link{display:none}.about{grid-template-columns:1fr;gap:14px}.sectionhead{align-items:start;flex-direction:column}.sectionhead p{max-width:420px}.footer{flex-direction:column;align-items:flex-start;gap:9px}.value-strip{gap:14px;padding:19px}.value-index{flex-basis:27px;width:27px;height:27px}}
+@media(max-width:560px){.topline{font-size:8px;letter-spacing:.12em;padding:9px 10px}.nav{min-height:70px;padding:0 17px;gap:12px}.brand{font-size:24px}.brand small{font-size:7px;margin-top:7px}.navlinks{gap:10px}.navlinks>a[href="#piezas"]{font-size:10px}.cartbtn{padding:10px 13px;font-size:9px}.hero{padding:51px 19px 38px;gap:28px}.hero h1{font-size:clamp(54px,14vw,74px);margin:20px 0}.hero p{font-size:12px;line-height:1.9}.primary{padding:14px 18px;margin-top:22px;font-size:9px}.heroart{min-height:300px}.heroart svg{width:70%}.heroart:after{right:13px;bottom:13px;font-size:7px}.value-strip{grid-template-columns:1fr;margin:0 16px 10px;padding:15px 18px;gap:14px;border-radius:13px}.value-item{align-items:center}.value-item strong{margin:0 0 3px}.section{padding:59px 16px}.section h2{font-size:clamp(38px,10vw,49px)}.sectionhead{gap:14px;margin-bottom:23px}.notice{font-size:9px;padding:11px 13px}.catalog-tools{gap:10px;margin-bottom:20px}.searchbox{max-width:none;flex-basis:100%;min-height:43px}.sort-box{flex:1 1 auto}.sort-box select{padding-right:27px}.product-count{font-size:9px}.products{gap:12px}.product{border-radius:12px}.photo{aspect-ratio:4/4.55}.productinfo{padding:13px 11px 13px}.producttitle{font-size:clamp(19px,5.8vw,24px);margin-bottom:11px}.productmeta{align-items:flex-start;flex-direction:column;gap:7px}.stock{text-align:left}.price{font-size:11px}.add{padding:12px 6px;font-size:8px;letter-spacing:.035em;margin-top:13px}.placeholder-label{left:6px;bottom:6px;padding:5px 7px;font-size:6px;letter-spacing:.025em}.about{padding:56px 22px}.about h2{font-size:47px}.about p{font-size:11px}.footer{padding:23px 19px}.cartpanel{padding:20px}.carttop h2{font-size:32px}}
+@media(max-width:360px){.brand{font-size:21px}.navlinks>a[href="#piezas"]{display:none}.cartbtn{padding:10px 11px}.hero h1{font-size:51px}.products{gap:9px}.productinfo{padding:12px 9px}.add{font-size:7px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.heroart svg,.product:hover{transform:none!important}}
+
 </style></head><body>
 <div class="topline">Piezas hechas a mano · Santa Fe, Argentina</div><header class="nav"><a class="brand" href="#">AKHARI<small>C E R Á M I C A</small></a><nav class="navlinks"><a href="#piezas">Piezas</a><a href="#nosotras">Sobre Akhari</a><button class="cartbtn" id="openCart">Bolsa (<span id="cartCount">0</span>)</button><a class="social-link" href="https://www.instagram.com/akhari.ceramica/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Akhari Cerámica" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a class="social-link" href="https://wa.me/5493424402839" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Akhari por WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.5 2.3 2.2 4 4.5 4.5l1.2-1.2 2 1c-.2 1.6-1.3 2.4-2.8 2.2-3.8-.6-6.5-3.3-7.1-7.1-.2-1.5.6-2.6 2.2-2.8l1 2Z"/></svg></a></nav></header>
 <main><section class="hero"><div><div class="eyebrow">Objetos con intención</div><h1>La belleza de lo<br><em>hecho a mano.</em></h1><p>Piezas de cerámica y pequeños objetos para acompañar los rituales cotidianos. Cada forma, cada detalle, hecho con tiempo.</p><a class="primary" href="#piezas">Explorar piezas <span aria-hidden="true">↘</span></a></div><div class="heroart" aria-label="Ilustración de un jarrón artesanal"><svg viewBox="0 0 340 360" role="img"><ellipse cx="170" cy="321" rx="105" ry="13" fill="#9d8b75" opacity=".3"/><path d="M130 45 C132 76 143 88 121 113 C97 141 86 194 95 252 C101 296 125 311 170 311 C215 311 239 296 245 252 C254 194 243 141 219 113 C197 88 208 76 210 45 Z" fill="#a65c43"/><path d="M130 45 Q170 55 210 45 L208 64 Q170 75 132 64 Z" fill="#7f3e2d"/><path d="M112 158 C145 174 195 174 228 158" stroke="#d5a58b" stroke-width="3" fill="none"/><path d="M100 205 C145 218 195 218 240 205" stroke="#d5a58b" stroke-width="2" fill="none"/><path d="M118 255 Q170 273 222 255" stroke="#d5a58b" stroke-width="2" fill="none"/></svg></div></section>
-<section class="section" id="piezas"><div class="sectionhead"><div><div class="eyebrow">La colección · Edición artesanal</div><h2>Piezas para todos los días</h2></div><p>Elegí tus favoritas. La disponibilidad se confirma al coordinar el pedido.</p></div><div class="notice">Cada pieza es especial. Consultá disponibilidad antes de coordinar la entrega.</div><div class="products" id="products"><div class="empty">Cargando piezas…</div></div></section>
+<section class="value-strip" aria-label="Cómo comprar en Akhari">
+  <div class="value-item"><span class="value-index" aria-hidden="true">01</span><div><strong>Hecho a mano</strong><p>Cada pieza tiene sus propios matices.</p></div></div>
+  <div class="value-item"><span class="value-index" aria-hidden="true">02</span><div><strong>Disponibilidad real</strong><p>Consultamos stock antes de coordinar.</p></div></div>
+  <div class="value-item"><span class="value-index" aria-hidden="true">03</span><div><strong>Pedido personal</strong><p>Armá tu selección y enviala por WhatsApp.</p></div></div>
+</section>
+<section class="section" id="piezas"><div class="sectionhead"><div><div class="eyebrow">La colección · Edición artesanal</div><h2>Piezas para todos los días</h2></div><p>Elegí tus favoritas. La disponibilidad se confirma al coordinar el pedido.</p></div><div class="notice">Cada pieza es especial. Consultá disponibilidad antes de coordinar la entrega.</div>
+<div class="catalog-tools">
+  <label class="searchbox" for="productSearch">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.3 4.3"/></svg>
+    <input type="search" id="productSearch" placeholder="Buscar una pieza…" aria-label="Buscar piezas por nombre o descripción" autocomplete="off">
+  </label>
+  <label class="sort-box" for="productSort">Ordenar
+    <select id="productSort" aria-label="Ordenar las piezas">
+      <option value="featured">Orden original</option>
+      <option value="name">Nombre A–Z</option>
+      <option value="price-asc">Precio: menor a mayor</option>
+      <option value="price-desc">Precio: mayor a menor</option>
+    </select>
+  </label>
+  <p class="product-count" id="productCount" aria-live="polite">Cargando colección…</p>
+</div>
+<div class="products" id="products"><div class="empty">Cargando piezas…</div></div></section>
 <section class="about" id="nosotras"><div><div class="eyebrow">Hecho con tiempo</div><h2>Lo simple, lo único,<br>lo cotidiano.</h2></div><p>Akhari nace del amor por los objetos con carácter: piezas pequeñas, honestas y hechas a mano. Cada producto puede tener variaciones propias del trabajo artesanal. Escribinos para consultar disponibilidad, detalles y formas de entrega.</p></section></main>
 <footer class="footer"><span>© <span id="year"></span> AKHARI CERÁMICA</span><span>Hecho a mano en Santa Fe, Argentina</span><span class="footer-social"><a href="https://www.instagram.com/akhari.ceramica/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://wa.me/5493424402839" target="_blank" rel="noopener noreferrer">WhatsApp</a> · <a href="#piezas">Volver arriba ↑</a></span></footer>
 <div class="cartpanel" id="cartPanel" aria-label="Tu pedido"><div class="carttop"><h2>Tu pedido</h2><button class="close" id="closeCart" aria-label="Cerrar">×</button></div><div id="cartItems"></div><label class="small" for="customerName">Tu nombre (opcional)</label><input class="field" id="customerName" maxlength="100" placeholder="¿Cómo te llamás?"><label class="small" for="customerNote">Comentario (opcional)</label><textarea class="field" id="customerNote" maxlength="1000" rows="3" placeholder="Color, retiro, entrega…"></textarea><div class="total"><span>Total estimado</span><span id="cartTotal">$ 0</span></div><p class="small">Pedido sujeto a confirmación de stock y coordinación de entrega. No se realizan pagos en esta web.</p><button class="primary checkout" id="sendOrder">Enviar pedido por WhatsApp</button></div><div class="toast" id="toast" role="status"></div>
@@ -97,12 +164,36 @@ let products=[],cart=JSON.parse(localStorage.getItem("akhari-cart")||"{}"),whats
 const money=n=>new Intl.NumberFormat("es-AR",{style:"currency",currency:"ARS",maximumFractionDigits:0}).format(n||0);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function placeholder(name=""){const n=String(name).toLowerCase();let art='<path d="M28 25 Q20 80 60 120 Q100 80 92 25" fill="none" stroke="#a6533b" stroke-width="5" stroke-linecap="round"/>';if(n.includes("collar largo")){art='<path d="M25 18 C18 63 28 113 60 132 C92 113 102 63 95 18" fill="none" stroke="#a6533b" stroke-width="4" stroke-linecap="round"/>'+Array.from({length:13},(_,i)=>{const a=(Math.PI*i/12);const x=60-34*Math.cos(a),y=24+95*Math.sin(a);return '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="3.6" fill="'+(i%3===0?'#7d3b2b':'#c58c68')+'"/>'}).join("")}else if(n.includes("collar")){art='<path d="M25 24 C26 71 39 104 60 113 C81 104 94 71 95 24" fill="none" stroke="#a6533b" stroke-width="4" stroke-linecap="round"/>'+Array.from({length:15},(_,i)=>{const a=(Math.PI*i/14);const x=60-29*Math.cos(a),y=28+79*Math.sin(a);return '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="3.8" fill="'+(i%4===0?'#7d3b2b':'#c58c68')+'"/>'}).join("")}else if(n.includes("pulsera")){art='<circle cx="60" cy="75" r="42" fill="none" stroke="#a6533b" stroke-width="9"/>'+Array.from({length:12},(_,i)=>{const a=(Math.PI*2*i/12);return '<circle cx="'+(60+42*Math.cos(a)).toFixed(1)+'" cy="'+(75+42*Math.sin(a)).toFixed(1)+'" r="4.2" fill="'+(i%3===0?'#7d3b2b':'#d0a184')+'"/>'}).join("")}else if(n.includes("pincho")){art='<path d="M60 125 L60 28" stroke="#7d3b2b" stroke-width="4" stroke-linecap="round"/><path d="M60 43 C33 17 24 43 54 58 M60 66 C88 39 99 65 65 82 M60 87 C32 67 27 92 56 104" fill="#78816b" stroke="#66705a" stroke-width="2" stroke-linejoin="round"/><path d="M49 125 L71 125" stroke="#a6533b" stroke-width="5" stroke-linecap="round"/>'}return '<div class="placeholder"><svg viewBox="0 0 120 150" aria-hidden="true"><ellipse cx="60" cy="137" rx="35" ry="5" fill="#988674" opacity=".25"/>'+art+'</svg></div>'}
-function renderProducts(){const el=document.querySelector("#products"),list=products.filter(p=>p.active!==false);if(!list.length){el.innerHTML='<div class="empty">Estamos preparando la colección. Volvé pronto.</div>';return}el.innerHTML=list.map(p=>{const st=p.stock===null||p.stock===undefined?"Consultar stock":p.stock>0?"Disponible":"Agotado";return '<article class="product"><div class="photo">'+(p.image?'<img loading="lazy" src="'+p.image+'" alt="'+esc(p.name)+'">':placeholder(p.name))+'</div><div class="productinfo"><h3 class="producttitle">'+esc(p.name)+'</h3><div class="productmeta"><span class="price">'+money(p.price)+'</span><span class="stock">'+st+'</span></div><button class="add" data-add="'+esc(p.id)+'" '+(p.stock===0?'disabled':'')+'>'+(p.stock===0?'Sin stock':'Sumar a mi pedido')+'</button></div></article>'}).join("");el.querySelectorAll("[data-add]").forEach(b=>b.addEventListener("click",()=>addToCart(b.dataset.add)))}
+function renderProducts(){
+  const el=document.querySelector("#products");
+  const all=products.filter(p=>p.active!==false);
+  const plain=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLocaleLowerCase("es-AR");
+  const query=plain(document.querySelector("#productSearch")?.value||"").trim();
+  let list=all.filter(p=>!query||plain((p.name||"")+" "+(p.description||"")).includes(query));
+  const sort=document.querySelector("#productSort")?.value||"featured";
+  if(sort==="name")list.sort((a,b)=>String(a.name||"").localeCompare(String(b.name||""),"es"));
+  if(sort==="price-asc")list.sort((a,b)=>Number(a.price||0)-Number(b.price||0));
+  if(sort==="price-desc")list.sort((a,b)=>Number(b.price||0)-Number(a.price||0));
+  const count=document.querySelector("#productCount");
+  if(count)count.textContent=query?list.length+" "+(list.length===1?"pieza encontrada":"piezas encontradas"):all.length+" "+(all.length===1?"pieza":"piezas");
+  if(!list.length){
+    el.innerHTML=all.length?'<div class="empty">No encontramos piezas con esa búsqueda. Probá con otra palabra.</div>':'<div class="empty">Estamos preparando la colección. Volvé pronto.</div>';
+    return;
+  }
+  el.innerHTML=list.map(p=>{
+    const st=p.stock===null||p.stock===undefined?"Consultar stock":p.stock>0?"Disponible":"Agotado";
+    const visual=p.image?'<img loading="lazy" decoding="async" src="'+esc(p.image)+'" alt="'+esc(p.name)+'">':'<div class="placeholder-wrap" role="img" aria-label="Ilustración decorativa; fotografía de '+esc(p.name)+' pendiente">'+placeholder(p.name)+'<span class="placeholder-label">Ilustración · foto pendiente</span></div>';
+    return '<article class="product"><div class="photo">'+visual+'</div><div class="productinfo"><h3 class="producttitle">'+esc(p.name)+'</h3><div class="productmeta"><span class="price">'+money(p.price)+'</span><span class="stock">'+st+'</span></div><button class="add" data-add="'+esc(p.id)+'" '+(p.stock===0?'disabled':'')+'>'+(p.stock===0?'Sin stock':'Sumar a mi pedido')+'</button></div></article>';
+  }).join("");
+  el.querySelectorAll("[data-add]").forEach(b=>b.addEventListener("click",()=>addToCart(b.dataset.add)));
+}
 function saveCart(){localStorage.setItem("akhari-cart",JSON.stringify(cart));renderCart()}
 function addToCart(id){const p=products.find(x=>x.id===id);if(!p)return;const n=(cart[id]||0)+1;if(p.stock!==null&&p.stock!==undefined&&n>p.stock){toast("No hay más unidades disponibles.");return}cart[id]=n;saveCart();toast("Agregado a tu pedido.")}
 function renderCart(){const count=Object.values(cart).reduce((a,b)=>a+b,0);document.querySelector("#cartCount").textContent=count;const lines=Object.entries(cart).map(([id,q])=>({p:products.find(p=>p.id===id),q})).filter(x=>x.p);document.querySelector("#cartItems").innerHTML=lines.length?lines.map(({p,q})=>'<div class="cartline"><div><strong>'+esc(p.name)+'</strong><div class="small">'+money(p.price)+' c/u</div></div><div class="qty"><button data-dec="'+esc(p.id)+'" aria-label="Quitar uno">−</button><span>'+q+'</span><button data-inc="'+esc(p.id)+'" aria-label="Agregar uno">+</button></div></div>').join(""):'<div class="empty">Todavía no agregaste piezas.</div>';document.querySelectorAll("[data-dec]").forEach(b=>b.onclick=()=>{cart[b.dataset.dec]=(cart[b.dataset.dec]||0)-1;if(cart[b.dataset.dec]<=0)delete cart[b.dataset.dec];saveCart()});document.querySelectorAll("[data-inc]").forEach(b=>b.onclick=()=>addToCart(b.dataset.inc));document.querySelector("#cartTotal").textContent=money(lines.reduce((s,x)=>s+x.p.price*x.q,0));document.querySelector("#sendOrder").disabled=!lines.length;document.querySelector("#sendOrder").style.opacity=lines.length?1:.5}
 function toast(s){const t=document.querySelector("#toast");t.textContent=s;t.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2600)}
 document.querySelector("#openCart").onclick=()=>document.querySelector("#cartPanel").classList.add("open");document.querySelector("#closeCart").onclick=()=>document.querySelector("#cartPanel").classList.remove("open");document.querySelector("#year").textContent=new Date().getFullYear();
+const productSearch=document.querySelector("#productSearch");if(productSearch)productSearch.addEventListener("input",renderProducts);
+const productSort=document.querySelector("#productSort");if(productSort)productSort.addEventListener("change",renderProducts);
 async function load(){try{const snap=await getDocs(query(collection(db,"products"),where("active","==",true)));products=snap.docs.map(d=>({id:d.id,...d.data()}));if(!products.length)products=defaults;const s=await getDoc(doc(db,"settings","store"));whatsapp=s.exists()?(s.data().whatsapp||"5493424402839"):"5493424402839"}catch(e){console.error(e);products=defaults;toast("Catálogo inicial: conexión a la base de datos pendiente.")}renderProducts();renderCart()}
 document.querySelector("#sendOrder").onclick=async()=>{const lines=Object.entries(cart).map(([id,q])=>({p:products.find(p=>p.id===id),q})).filter(x=>x.p);if(!lines.length)return;const total=lines.reduce((s,x)=>s+x.p.price*x.q,0),name=document.querySelector("#customerName").value.trim(),note=document.querySelector("#customerNote").value.trim();const text=["Hola, Akhari. Quiero consultar por este pedido:","",...lines.map(x=>"• "+x.p.name+" × "+x.q+" — "+money(x.p.price*x.q)),"","Total estimado: "+money(total),name?"Nombre: "+name:"",note?"Comentario: "+note:"","¿Me confirman stock y opciones de entrega?"].filter(Boolean).join("\n");const url="https://wa.me/"+whatsapp.replace(/\D/g,"")+"?text="+encodeURIComponent(text);const win=window.open("about:blank","_blank");try{await addDoc(collection(db,"orders"),{items:lines.map(x=>({name:x.p.name,price:x.p.price,quantity:x.q})),total,status:"pending",createdAt:serverTimestamp(),customerName:name,note})}catch(e){console.error("Pedido no guardado en panel",e)}if(win)win.location.href=url;else location.href=url;cart={};saveCart();document.querySelector("#cartPanel").classList.remove("open");toast("Abriendo WhatsApp para enviar tu pedido.")};
 load();
