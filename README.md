@@ -25,6 +25,12 @@ La diferencia bruta no descuenta embalaje, comisiones, impuestos, entrega ni otr
 
 En el panel, **Sincronizar precios base** actualiza costo y precio de esos cuatro productos por coincidencia de nombre. Conserva foto, stock, descripción y visibilidad de los productos existentes; crea los que falten. Esta acción requiere iniciar sesión y confirmarla. No se ejecuta automáticamente al abrir la página.
 
+## Diseño de la tienda
+
+La portada pública usa una dirección editorial inspirada en estudios de cerámica y tiendas artesanales: paleta de arcilla, lino y tierra; tipografía serif para titulares; fotografía/arte enmarcado; tarjetas de producto más limpias; botones discretos y jerarquía adaptable a móvil. La implementación está en `public/index.html`, sin framework ni dependencias nuevas. Se conservan el catálogo Firestore, el carrito local y el flujo de consulta por WhatsApp.
+
+Las imágenes reales de los cuatro productos no estaban incluidas en la tabla de precios ni se sustituyeron por fotos inventadas. Mientras no se carguen imágenes propias, el sitio utiliza una ilustración de respaldo.
+
 ## Funcionalidad
 
 ### Tienda pública
@@ -63,6 +69,12 @@ Antes de publicar cambios:
 
 No ejecutar comandos de facturación, migraciones destructivas, borrado masivo ni cambios de plan. Mantener Firebase Spark y costo $0.
 
-## Verificaciones pendientes de entorno
+## Estado de publicación y verificaciones pendientes
+
+La revisión visual quedó comprometida en la rama `main` del repositorio. El Hosting público no se considera actualizado hasta ejecutar el despliegue y comprobar la versión servida. No se dispone en esta sesión de una sesión CLI autorizada de Firebase para publicar; no se habilitó facturación ni se modificó el plan.
+
+Los precios de respaldo coinciden con la tabla anterior. Los precios persistidos en Firestore y las fotos reales todavía requieren comprobación en el panel autenticado; el catálogo de respaldo no demuestra que los documentos de Firestore estén sincronizados.
+
+
 
 El código del repositorio y la respuesta HTTP de las páginas no demuestran por sí solos que Authentication, Firestore, correo de verificación, guardado de productos, imágenes o WhatsApp funcionen de punta a punta. Confirmar esos flujos en el proyecto real antes de dar el circuito por validado.
