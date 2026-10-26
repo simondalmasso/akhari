@@ -9,7 +9,9 @@ service cloud.firestore {
 
     function bootstrapAdmin() {
       return signedInVerified()
-        && request.auth.token.email == "simondalmasso44@gmail.com";
+        && (request.auth.token.email == "simondalmasso44@gmail.com"
+          || request.auth.token.email == "simondalmaso44@gmail.com"
+          || request.auth.token.email == "analiariboldi@gmail.com");
     }
 
     function isAdmin() {
