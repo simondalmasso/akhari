@@ -27,7 +27,7 @@ En el panel, **Sincronizar precios base** actualiza costo y precio de esos cuatr
 
 ## Diseño de la tienda
 
-La portada pública usa una dirección editorial inspirada en estudios de cerámica y tiendas artesanales: paleta de arcilla, lino y tierra; tipografía serif para titulares; fotografía/arte enmarcado; tarjetas de producto más limpias; botones discretos y jerarquía adaptable a móvil. La implementación está en `public/index.html`, sin framework ni dependencias nuevas. Se conservan el catálogo Firestore, el carrito local y el flujo de consulta por WhatsApp.
+La portada pública sigue una dirección editorial inspirada en estudios de cerámica: paleta de arcilla, lino y tierra; tipografías serif para titulares y sans-serif para controles; navegación translúcida adherida; hero ilustrado en SVG; franja de confianza; tarjetas redondeadas y jerarquía responsive. El catálogo incorpora búsqueda por nombre/descripción y orden por nombre o precio. La cuadrícula muestra cuatro columnas en escritorio y dos en móvil. La implementación vive en `public/index.html`, sin framework ni dependencias de JavaScript nuevas (las tipografías se cargan desde Google Fonts). Se conservan el catálogo Firestore, el carrito local y el flujo de consulta por WhatsApp.
 
 Las imágenes reales de los cuatro productos no estaban incluidas en la tabla de precios ni se sustituyeron por fotos inventadas. Mientras no se carguen imágenes propias, el sitio utiliza ilustraciones vectoriales de respaldo diferenciadas por tipo de producto; no se presentan como fotografías reales.
 
@@ -71,7 +71,7 @@ No ejecutar comandos de facturación, migraciones destructivas, borrado masivo n
 
 ## Estado de publicación y verificaciones pendientes
 
-La revisión visual quedó comprometida en la rama `main` del repositorio. El Hosting público no se considera actualizado hasta ejecutar el despliegue y comprobar la versión servida. No se dispone en esta sesión de una sesión CLI autorizada de Firebase para publicar; no se habilitó facturación ni se modificó el plan.
+El 26/10/2026 se desplegó Firebase Hosting desde `main` y se confirmó la publicación pública en `https://akhari.web.app/`. El comando `firebase deploy --only hosting` terminó con `Deploy complete!`; el despliegue incluyó únicamente Hosting, no las reglas de Firestore. La versión servida contiene la búsqueda y el orden del catálogo. Se verificaron HTTP 200 en la tienda y el panel, búsqueda por “pulsera”, orden ascendente de precios, apertura del carrito y ausencia de desbordamiento horizontal a 390 px. No se envió un pedido real durante las pruebas. Se mantuvo Firebase Spark; no se habilitó Blaze ni se modificó la facturación.
 
 Los precios de respaldo coinciden con la tabla anterior. Los precios persistidos en Firestore y las fotos reales todavía requieren comprobación en el panel autenticado; el catálogo de respaldo no demuestra que los documentos de Firestore estén sincronizados.
 
